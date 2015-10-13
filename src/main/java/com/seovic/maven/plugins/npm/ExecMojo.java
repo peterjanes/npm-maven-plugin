@@ -29,6 +29,12 @@ public class ExecMojo
     /**
      * The npm command to execute, such as 'install', 'test', etc. Required.
      */
+    @Parameter(property = "npm.executable", defaultValue = "npm")
+    protected String executable;
+
+    /**
+     * The npm command to execute, such as 'install', 'test', etc. Required.
+     */
     @Parameter(property = "npm.command")
     private String command;
 
@@ -74,7 +80,7 @@ public class ExecMojo
             throw new MojoExecutionException("The npm command to execute must be set");
             }
 
-        CommandLine cmdLine = new CommandLine("npm");
+        CommandLine cmdLine = new CommandLine(executable);
         addCommand(cmdLine);
         addArguments(cmdLine);
 

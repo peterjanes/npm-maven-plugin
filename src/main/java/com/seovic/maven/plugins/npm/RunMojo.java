@@ -77,7 +77,7 @@ public class RunMojo
             }
         else if (pkg.hasScript(script))
             {
-            CommandLine cmdLine = new CommandLine("npm");
+            CommandLine cmdLine = new CommandLine(executable);
             addCommand(cmdLine);
             cmdLine.addArgument(script);
             addArguments(cmdLine);
